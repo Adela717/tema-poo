@@ -47,6 +47,41 @@ public class Grid extends ArrayList<ArrayList<Cell>> {
         return grid;
     }
 
+    public Grid generateHardcodedMap() {
+        Grid grid = new Grid(5, 5);
+        for (int i = 0; i < 5; i++) {
+            ArrayList<Cell> row = new ArrayList<>();
+            for (int j = 0; j < 5; j++) {
+                row.add(new Cell(i, j, CellEntityType.VOID));
+            }
+            grid.add(row);
+        }
+
+        Cell currentCell = getCell(0, 3);
+        currentCell.setCellType(CellEntityType.SANCTUARY);
+
+        currentCell = getCell(1, 3);
+        currentCell.setCellType(CellEntityType.SANCTUARY);
+
+        currentCell = getCell(2, 0);
+        currentCell.setCellType(CellEntityType.SANCTUARY);
+
+        currentCell = getCell(4, 3);
+        currentCell.setCellType(CellEntityType.SANCTUARY);
+
+        currentCell = getCell(3, 4);
+        currentCell.setCellType(CellEntityType.ENEMY);
+
+        currentCell = getCell(4, 4);
+        currentCell.setCellType(CellEntityType.PORTAL);
+
+        currentCell = getCell(0, 0);
+        currentCell.setCellType(CellEntityType.PLAYER);
+
+        grid.currentCell = grid.getCell(0, 0);
+        return grid;
+    }
+
     public void addEntity(CellEntityType type, int count) {
         Random rd = new Random();
         int i = 0;
