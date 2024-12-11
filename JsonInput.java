@@ -1,7 +1,4 @@
-import org.json.simple.JSONArray;
-import org.json.simple.parser.ParseException;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
+/*import org.json.JSONObject;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -12,7 +9,7 @@ import java.util.TreeSet;
 
 public class JsonInput {
     public static ArrayList<Account> deserializeAccounts() {
-        String accountPath = "C:\\Users\\adela\\Desktop\\POO\\TEMA1\\accounts.json";
+        String accountPath = "C:\\Users\\adela\\Desktop\\TEMA POO\\accounts.json";
         try {
             // Folosim JSONParser pentru a parsea fisierul
             String content = new String((Files.readAllBytes(Paths.get(accountPath))));
@@ -87,4 +84,4 @@ public class JsonInput {
         }
         return null;
     }
-}
+}*/

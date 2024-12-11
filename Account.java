@@ -1,7 +1,5 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.SortedSet;
-import java.util.TreeSet;
 
 public class Account{
     private Information information;
@@ -10,7 +8,7 @@ public class Account{
 
     public Account(ArrayList<Character> characters, int mapsCompleted, Information information) {
         this.information = information;
-        this.characters = new ArrayList<>();
+        this.characters = characters;
         this.mapsCompleted = mapsCompleted;
     }
 

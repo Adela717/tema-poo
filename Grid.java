@@ -103,10 +103,12 @@ public class Grid extends ArrayList<ArrayList<Cell>> {
             for (int j = 0; j < width; j++) {
                 if (getCell(i, j) == currentCell) {
                     System.out.print("P "); // P for Player
+                } else if(getCell(i,j).getIsVisited() == false) {
+                    System.out.print("N ");
                 } else {
                     switch (getCell(i, j).getCellType()) {
                         case VOID:
-                            System.out.print(". ");
+                            System.out.print("V ");
                             break;
                         case SANCTUARY:
                             System.out.print("S ");
@@ -115,7 +117,7 @@ public class Grid extends ArrayList<ArrayList<Cell>> {
                             System.out.print("E ");
                             break;
                         case PORTAL:
-                            System.out.print("O ");
+                            System.out.print("F ");
                             break;
                         case PLAYER:
                             System.out.print("P ");

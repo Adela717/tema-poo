@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Character extends Entity{
     public String name;
     public int experience;
@@ -81,5 +83,89 @@ public class Character extends Entity{
 
     public String getProfession() {
         return profession;
+    }
+
+    public void receiveDamage(int damage) {
+        if(this.profession.equals("Warrior")) {
+            if(this.dexterity + this.charisma >= 10) {
+                Random random = new Random();
+                int possibility = 1 + random.nextInt(2);
+                if(possibility == 1) {
+                    damage = damage / 2;
+                    System.out.println("The damage you get is halved");
+                }
+            }
+        }
+
+        if(this.profession.equals("Rogue")) {
+            if(this.strength + this.charisma >= 10) {
+                Random random = new Random();
+                int possibility = 1 + random.nextInt(2);
+                if(possibility == 1) {
+                    damage = damage / 2;
+                    System.out.println("The damage you get is halved");
+                }
+            }
+        }
+
+        if(this.profession.equals("Mage")) {
+            if(this.dexterity + this.strength >= 10) {
+                Random random = new Random();
+                int possibility = 1 + random.nextInt(2);
+                if(possibility == 1) {
+                    damage = damage / 2;
+                    System.out.println("The damage you get is halved");
+                }
+            }
+        }
+
+        if(this.getCurrentLife() >= damage) {
+            this.setCurrentLife(this.getCurrentLife() - damage);
+        } else {
+            this.setCurrentLife(0);
+        }
+    }
+
+    public int getDamage() {
+        int damage = 0;
+        int possibility;
+        Random random = new Random();
+
+        if(this.profession.equals("Warrior")) {
+            damage = this.strength * 7 + this.dexterity + this.charisma;
+            possibility = 1 + random.nextInt(2);
+            if(this.strength <= 15) {
+                if(possibility == 1) {
+                    damage = damage * 2;
+                    System.out.println("The character does double the damage");
+                }
+            }
+        }
+
+        if(this.profession.equals("Rogue")) {
+            damage = this.strength + this.dexterity * 6 + this.charisma;
+            possibility = 1 + random.nextInt(2);
+
+            if(this.dexterity <= 13) {
+                if(possibility == 1) {
+                    damage = damage * 2;
+                    System.out.println("The character does double the damage");
+                }
+            }
+        }
+
+        if(this.profession.equals("Mage")) {
+            damage = this.strength + this.dexterity + this.charisma * 8;
+            possibility = 1 + random.nextInt(2);
+
+            if(this.charisma <= 17) {
+                if(possibility == 1) {
+                    damage = damage * 2;
+                    System.out.println("The character does double the damage");
+                }
+            }
+        }
+
+        return damage;
     }
 }
