@@ -47,7 +47,7 @@ public class Grid extends ArrayList<ArrayList<Cell>> {
         return grid;
     }
 
-    public Grid generateHardcodedMap() {
+    public static Grid generateHardcodedMap() {
         Grid grid = new Grid(5, 5);
         for (int i = 0; i < 5; i++) {
             ArrayList<Cell> row = new ArrayList<>();
@@ -57,25 +57,25 @@ public class Grid extends ArrayList<ArrayList<Cell>> {
             grid.add(row);
         }
 
-        Cell currentCell = getCell(0, 3);
+        Cell currentCell = grid.getCell(0, 3);
         currentCell.setCellType(CellEntityType.SANCTUARY);
 
-        currentCell = getCell(1, 3);
+        currentCell = grid.getCell(1, 3);
         currentCell.setCellType(CellEntityType.SANCTUARY);
 
-        currentCell = getCell(2, 0);
+        currentCell = grid.getCell(2, 0);
         currentCell.setCellType(CellEntityType.SANCTUARY);
 
-        currentCell = getCell(4, 3);
+        currentCell = grid.getCell(4, 3);
         currentCell.setCellType(CellEntityType.SANCTUARY);
 
-        currentCell = getCell(3, 4);
+        currentCell = grid.getCell(3, 4);
         currentCell.setCellType(CellEntityType.ENEMY);
 
-        currentCell = getCell(4, 4);
+        currentCell = grid.getCell(4, 4);
         currentCell.setCellType(CellEntityType.PORTAL);
 
-        currentCell = getCell(0, 0);
+        currentCell = grid.getCell(0, 0);
         currentCell.setCellType(CellEntityType.PLAYER);
 
         grid.currentCell = grid.getCell(0, 0);

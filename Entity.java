@@ -3,7 +3,7 @@ import java.util.Random;
 
 public abstract class Entity implements Battle{
     private int currentLife;
-    private final int maxLife = 400;
+    private final int maxLife = 600;
 
     private int currentMana;
     private final int maxMana = 300;

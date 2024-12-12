@@ -25,7 +25,7 @@ public class Game{
         Random rand = new Random();
         int randomLength = 5 + rand.nextInt(4);
         int randomWidth = 5 + rand.nextInt(4);
-        this.grid = Grid.generateMap(randomLength, randomWidth);
+        this.grid = Grid.generateHardcodedMap();
         this.accounts = createAccounts();
     }
 
@@ -360,11 +360,20 @@ public class Game{
 
 
                             if(enemy.getCurrentLife() <= 0) {
+                                System.out.println("Congratulations! You have won!");
+
+                                System.out.println("Press enter to continue");
+                                command = scanner.nextLine();
+
+                                clearScreen();
                                 System.out.println("Level " + level);
                                 System.out.println("Enter movement commands (n, s, w, e). Type 'x' to quit.");
                                 grid.printGrid();
                                 System.out.println();
-                                System.out.println("Congratulations! You have won!");
+
+
+
+
                                 Random random = new Random();
                                 int randomExperiencePoints = 4 + random.nextInt(7);
                                 System.out.println("You have received " + randomExperiencePoints + " experience points");
@@ -563,13 +572,18 @@ public class Game{
                 }
 
                 if(grid.currentCell.cellType == CellEntityType.PORTAL && !grid.currentCell.getIsVisited()) {
+                    Random rand = new Random();
+                    int randomLength = 5 + rand.nextInt(6);
+                    int randomWidth = 5 + rand.nextInt(6);
+                    this.grid = Grid.generateMap(randomLength, randomWidth);
+
                     clearScreen();
-                    System.out.println("Level " + level);
+                    System.out.println("Level " + (level + 1));
                     System.out.println("Enter movement commands (n, s, w, e). Type 'x' to quit.");
                     grid.printGrid();
                     System.out.println();
 
-                    System.out.println("Level " + (level + 1));
+                    //System.out.println("Level " + (level + 1));
                     System.out.println("You have encountered a portal!");
                     System.out.println("You get " + (level * 5) + " experience points");
                     selectedCharacter.setExperience(selectedCharacter.getExperience() + 5 * level);
@@ -608,10 +622,10 @@ public class Game{
                         System.out.println();
                     }
 
-                    Random rand = new Random();
-                    int randomLength = 5 + rand.nextInt(6);
-                    int randomWidth = 5 + rand.nextInt(6);
-                    this.grid = Grid.generateMap(randomLength, randomWidth);
+                    //Random rand = new Random();
+                    //int randomLength = 5 + rand.nextInt(6);
+                    //int randomWidth = 5 + rand.nextInt(6);
+                    //this.grid = Grid.generateMap(randomLength, randomWidth);
                     //System.out.println("Level " + level);
                     //System.out.println("Enter movement commands (n, s, w, e). Type 'x' to quit.");
                     //grid.printGrid();
